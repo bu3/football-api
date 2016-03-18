@@ -1,0 +1,6 @@
+server:
+  port: 8080
+
+footballData:
+  url: http://api.football-data.org/v1
+  apiKey: ac3fe35d95bb42a88804315b6986a783
