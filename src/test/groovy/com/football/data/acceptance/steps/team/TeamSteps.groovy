@@ -23,7 +23,7 @@ Then(~'^team players are$') { DataTable teamPlayers ->
     def response = StoryContext.getFromContext(RESPONSE).as(Map)
 
     teamPlayers.asMaps(String,String).each { row ->
-        def result = Eval.me('player', response, "player.${row.property}")
+        def result = Eval.me('player', response, "player.${row.property}").toString()
         def fieldValue = row.value ?: null
 
         assertThat("trip.${row.field}", result, CoreMatchers.is(fieldValue))

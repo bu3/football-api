@@ -8,7 +8,7 @@ Feature: Footbal API returns Team Players
       | property                 | value              |
       | players[0].name          | Ervin Zukanovic    |
       | players[0].position      | Centre Back        |
-#      | players[0].jerseyNumber  | 87                 |
+      | players[0].jerseyNumber  | 87                 |
       | players[0].dateOfBirth   | 1987-02-11         |
       | players[0].nationality   | Bosnia-Herzegovina |
       | players[0].contractUntil | 2016-06-30         |
