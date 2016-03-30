@@ -2,6 +2,9 @@ language: java
 jdk:
   - oraclejdk8
 
+script:
+  - ./gradlew test testAll
+
 notifications:
   email:
     recipients:
