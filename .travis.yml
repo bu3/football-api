@@ -1,8 +1,11 @@
 language: java
+
 jdk:
 - oraclejdk8
+
 script:
 - "./gradlew test testAcceptance"
+
 notifications:
   email:
     recipients:
