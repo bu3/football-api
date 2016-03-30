@@ -22,4 +22,16 @@ class Player {
     String marketValue
 }
 
+@ToString
+@EqualsAndHashCode
+class Season {
+
+    String id
+    String caption
+    String league
+    String year
+    String numberOfTeams
+    String numberOfGames
+}
+
 

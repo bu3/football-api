@@ -24,6 +24,14 @@ class FootballDataClient {
     @Value('${footballData.apiKey}')
     String apiKey
 
+    Season[] getSeasons(String season) {
+        def headers = new HttpHeaders()
+        headers.add('X-Auth-Token', apiKey)
+        ResponseEntity<List<Season>> responseEntity = restTemplate.exchange("${url}/soccerseasons?season={season}", GET, new HttpEntity(headers), List.class, season)
+
+        responseEntity.body
+    }
+
     Team getTeam(int teamId) {
         def headers = new HttpHeaders()
         headers.add('X-Auth-Token', apiKey)

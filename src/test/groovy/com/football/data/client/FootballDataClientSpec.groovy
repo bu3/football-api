@@ -33,4 +33,27 @@ class FootballDataClientSpec extends Specification {
         team.players[0].name == 'foo'
     }
 
+    def 'should get seasons'() {
+        given:
+        def restTemplate = Mock(RestTemplate)
+        FootballDataClient footballDataClient = new FootballDataClient(restTemplate: restTemplate, apiKey: 'apiKey', url: 'service-url')
+
+        when:
+        def seasons = footballDataClient.getSeasons('2015')
+
+        then:
+        1 * restTemplate.exchange(_ as String, GET, _ as HttpEntity, List, '2015') >> { args ->
+            assert args[0] == 'service-url/soccerseasons?season={season}'
+
+            HttpEntity httpEntity = args[2]
+            assert httpEntity.headers['X-Auth-Token'][0] == footballDataClient.apiKey
+
+            ResponseEntity.ok(new Season(id: 234))
+        }
+
+        seasons != null
+        seasons.size() == 1
+        seasons[0].id == '234'
+    }
+
 }
