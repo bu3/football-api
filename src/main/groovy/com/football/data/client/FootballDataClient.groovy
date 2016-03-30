@@ -1,5 +1,6 @@
 package com.football.data.client
 
+import groovy.util.logging.Slf4j
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.http.HttpEntity
@@ -10,6 +11,7 @@ import org.springframework.web.client.RestTemplate
 
 import static org.springframework.http.HttpMethod.GET
 
+@Slf4j
 @Component
 class FootballDataClient {
 
@@ -22,11 +24,10 @@ class FootballDataClient {
     @Value('${footballData.apiKey}')
     String apiKey
 
-    Team getTeam(int teamId){
+    Team getTeam(int teamId) {
         def headers = new HttpHeaders()
         headers.add('X-Auth-Token', apiKey)
-        HttpEntity entity = new HttpEntity(headers)
-        ResponseEntity<Team> responseEntity = restTemplate.exchange("${url}/teams/{teamId}/players", GET, entity, Team.class, teamId)
+        ResponseEntity<Team> responseEntity = restTemplate.exchange("${url}/teams/{teamId}/players", GET, new HttpEntity(headers), Team.class, teamId)
 
         responseEntity.body
     }
