@@ -3,11 +3,11 @@ jdk:
   - oraclejdk8
 
 script:
-  - ./gradlew test testAll
+  - ./gradlew test testAcceptance
 
 notifications:
   email:
     recipients:
-      - NOTIFICATIONS_EMAIL
+      - $NOTIFICATIONS_EMAIL
     on_success: change
     on_failure: always

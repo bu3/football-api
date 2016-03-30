@@ -117,7 +117,7 @@ task stopServer << {
     serverProcess.destroy()
 }
 
-task testAcceptanceLocal(dependsOn: ['compileTestGroovy', 'startServer']) << {
+task testAcceptance(dependsOn: ['compileTestGroovy', 'startServer']) << {
     checkStatus "http://localhost:9080/health".toURL(), 5
     try {
         javaexec {
@@ -140,4 +140,4 @@ task testAcceptanceLocal(dependsOn: ['compileTestGroovy', 'startServer']) << {
 }
 
 
-testAcceptanceLocal.finalizedBy stopServer
+testAcceptance.finalizedBy stopServer
