@@ -123,8 +123,8 @@ task testAcceptance(dependsOn: ['compileTestGroovy', 'startServer']) << {
         javaexec {
             main = "cucumber.api.cli.Main"
             classpath = sourceSets.test.runtimeClasspath
-            args = ['-f', 'html:build/reports/tests/acceptance/local/html',
-                    '-f', 'json:build/reports/tests/acceptance/local/json/index.json',
+            args = ['--plugin', 'html:build/reports/tests/acceptance/local/html',
+                    '--plugin', 'json:build/reports/tests/acceptance/local/json/index.json',
                     '--glue', 'src/test/groovy/com/football/data/acceptance/steps',
                     '-s',
                     'src/test/resources/features']
