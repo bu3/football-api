@@ -6,6 +6,7 @@ Spring app for showing how to consumes:
 * Spring fox for Swagger documentation
 * Cucumber for Acceptance Tests
 * Java 8 java.time features
+* Travis configuration
 
 
 ## Overview
