@@ -1,4 +1,4 @@
-# Football API
+# Football API [![Build Status](https://travis-ci.org/bu3/football-api.svg?branch=master)](https://travis-ci.org/bu3/football-api)
 
 Spring app for showing how to consumes:
 * REST API
