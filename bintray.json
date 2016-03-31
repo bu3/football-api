@@ -11,8 +11,8 @@
   },
 
   "version": {
-    "name": "0.0.1-SNAPSHOT",
-    "desc": "snapshot version",
+    "name": "0.0.1",
+    "desc": "beta version",
     "released": "2016-03-31",
     "gpgSign": false
   },
