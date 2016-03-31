@@ -14,7 +14,7 @@ notifications:
     on_failure: always
 
 deploy:
-  edge: true
+#  edge: true
   - provider: cloudfoundry
     username:
       secure: WwCUHvTRnNYh9EzMcRva4E52Tldmk+qs1Y//toX3L7MuzRejS5zNE8BGK8cQX9xm0kL5gigF3wcOxGGKF5Y2AV3IQCudkbqn7xKnjWUH9k1dgSSzxCpu6VcApn5gvlM3YJ5q4WocX6YtPaROPIM7ZRtdU0/2UDTjqxNOxt4ve3pO5TtFTQJP9uNNL37elv9EnvzY64kSF7+H/zHBvr+kFCsbr1I7EOoc9uAAvyTeA+77BttElrZ8ahDVoNrwEAoqsqAVHZSvpofw9h3zOM0sm7LXFSxOMlDJh1DVcoJIrhw0/7woskrTGXNRTqlUj8PRJHQk69s1UPRjgv9ouFymt+G5EFm4lEe0T8Qd2V3UPTPOG0tjl5vN1iQRLb7mEOoQGGdgEN0hixkvfv64KczcdejQlAMUS9aqBlAgsftcqxm9SFmYmvQjLEaGqx4RxL/qVebFCy8fUgqGav4l+bpZZTd100DA0Pe8Xv/9OvXrBLXPpD4l9dKLmrYrl5Cc7Ok2tuIuwzS3RhJ/Ri4AkSsijpO/EOUX7XSE51Mt5ZrSzfmCMonc0+hh8Q7mSpoEhp0xY4U7d/C5lZ2GqSugxc9K6EADI+ABdfniBaXSDidKrVo/JppNIFBqgHYixyKuWjMfAe7hR1FVyL2gaGZFvx8hzWnqECrGLFMHC+xExJNe2Bw=
