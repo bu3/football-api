@@ -3,7 +3,11 @@
     "name": "football-api",
     "repo": "my-stuff",
     "subject": "bu3",
-    "desc": "Football API app"
+    "desc": "Football API app",
+    "vcs_url": "https://github.com/bu3/football-api",
+    "github_use_tag_release_notes": true,
+    "licenses": ["MIT"],
+    "labels": ["football"]
   },
 
   "version": {
