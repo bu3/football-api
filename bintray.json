@@ -1,0 +1,21 @@
+{
+  "package": {
+    "name": "football-api",
+    "repo": "my-stuff",
+    "subject": "bu3",
+    "desc": "Football API app"
+  },
+
+  "version": {
+    "name": "0.0.1-SNAPSHOT",
+    "desc": "snapshot version",
+    "released": "2016-03-31",
+    "gpgSign": false
+  },
+
+  "files":
+  [
+    {"includePattern": "build/libs/football-api-0.0.1-SNAPSHOT.jar "}
+  ],
+  "publish": true
+}
