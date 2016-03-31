@@ -15,7 +15,7 @@
 
   "files":
   [
-    {"includePattern": "build/libs/football-api-0.0.1-SNAPSHOT.jar "}
+    {"includePattern": "build/libs/football-api-0.0.1-SNAPSHOT.jar"}
   ],
   "publish": true
 }
