@@ -15,7 +15,7 @@ this.metaClass.mixin(Hooks)
 this.metaClass.mixin(EN)
 
 When(~'^team players are requested$') { ->
-    def response = givenApiClient().contentType(JSON).get('/team/100')
+    def response = givenApiClient().contentType(JSON).get('/teams/100')
     StoryContext.putInContext(RESPONSE, response)
 }
 

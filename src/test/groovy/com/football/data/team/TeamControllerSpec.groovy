@@ -19,7 +19,7 @@ class TeamControllerSpec extends Specification {
         MockMvc mockMvc = MockMvcBuilders.standaloneSetup(teamController).build()
 
         when:
-        def response = mockMvc.perform(get("/team/100").accept(APPLICATION_JSON))
+        def response = mockMvc.perform(get("/teams/100").accept(APPLICATION_JSON))
 
         then:
         1 * teamController.teamService.findTeamById(100) >> {
@@ -34,7 +34,7 @@ class TeamControllerSpec extends Specification {
         MockMvc mockMvc = MockMvcBuilders.standaloneSetup(teamController).build()
 
         when:
-        def response = mockMvc.perform(get("/team/1").accept(APPLICATION_JSON))
+        def response = mockMvc.perform(get("/teams/1").accept(APPLICATION_JSON))
 
         then:
         1 * teamController.teamService.findTeamById(1) >> {

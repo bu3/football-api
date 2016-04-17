@@ -15,7 +15,7 @@ class TeamController {
     @Autowired
     TeamService teamService
 
-    @RequestMapping(value = 'team/{teamId}', method = RequestMethod.GET)
+    @RequestMapping(value = 'teams/{teamId}', method = RequestMethod.GET)
     ResponseEntity<Team> getTeam(@PathVariable int teamId) {
         def team = teamService.findTeamById(teamId)
         team ? ResponseEntity.ok(team) : new ResponseEntity<>(HttpStatus.NOT_FOUND)
