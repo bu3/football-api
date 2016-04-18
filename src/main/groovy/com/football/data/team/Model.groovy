@@ -9,6 +9,13 @@ import java.time.LocalDate
 @ToString
 @EqualsAndHashCode
 class Team {
+
+    String name
+    String code
+    String shortName
+    String marketValue
+    String logoUrl
+
     List<Player> players
 }
 

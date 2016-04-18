@@ -1,5 +1,6 @@
 package com.football.data.team
 
+import com.football.data.client.PlayerShortlist
 import org.springframework.stereotype.Component
 
 import java.time.LocalDate
@@ -7,8 +8,16 @@ import java.time.LocalDate
 @Component
 class TeamConverter {
 
-    Team convert(com.football.data.client.Team team) {
-        new Team(players: parsePlayers(team.players))
+    Team convert(com.football.data.client.Team team, PlayerShortlist shortlist) {
+        def playersShortlist = parsePlayers(shortlist.players)
+
+        new Team(
+                name: team.name,
+                code: team.code,
+                shortName: team.shortName,
+                marketValue: team.squadMarketValue,
+                logoUrl: team.crestUrl,
+                players: playersShortlist)
     }
 
     private List<Player> parsePlayers(List<com.football.data.client.Player> players) {

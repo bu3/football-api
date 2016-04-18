@@ -10,7 +10,6 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status
 
-
 class TeamControllerSpec extends Specification {
 
     def 'should return team players list'() {
@@ -23,9 +22,11 @@ class TeamControllerSpec extends Specification {
 
         then:
         1 * teamController.teamService.findTeamById(100) >> {
-            new Team(players: [])
+            new Team(name: 'name', players: [])
         }
-        response.andExpect(status().isOk()).andExpect(jsonPath('$.players', CoreMatchers.is(CoreMatchers.not(null))))
+        response.andExpect(status().isOk())
+                .andExpect(jsonPath('$.players', CoreMatchers.is(CoreMatchers.not(null))))
+                .andExpect(jsonPath('$.name', CoreMatchers.is('name')))
     }
 
     def 'should return 404 if team does not exist'() {

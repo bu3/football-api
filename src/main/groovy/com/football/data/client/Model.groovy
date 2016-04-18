@@ -6,6 +6,16 @@ import groovy.transform.ToString
 @ToString
 @EqualsAndHashCode
 class Team {
+    String name
+    String code
+    String shortName
+    String squadMarketValue
+    String crestUrl
+}
+
+@ToString
+@EqualsAndHashCode
+class PlayerShortlist {
     int count
     List<Player> players
 }

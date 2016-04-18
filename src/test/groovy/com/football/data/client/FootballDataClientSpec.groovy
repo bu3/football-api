@@ -9,9 +9,10 @@ import static org.springframework.http.HttpMethod.GET
 
 class FootballDataClientSpec extends Specification {
 
-    def 'should get team players'() {
+    def 'should load team'() {
         given:
         def restTemplate = Mock(RestTemplate)
+        def teamData = new Team(name: 'name', code: 'code', shortName: 'shortName', squadMarketValue: '1 €', crestUrl: 'logo.url')
         FootballDataClient footballDataClient = new FootballDataClient(restTemplate: restTemplate, apiKey: 'apiKey', url: 'service-url')
 
         when:
@@ -19,13 +20,35 @@ class FootballDataClientSpec extends Specification {
 
         then:
         1 * restTemplate.exchange(_ as String, GET, _ as HttpEntity, Team, _ as Integer) >> { args ->
+            assert args[0] == 'service-url/teams/{teamId}'
+            assert args[4][0] == 1
+
+            HttpEntity httpEntity = args[2]
+            assert httpEntity.headers['X-Auth-Token'][0] == footballDataClient.apiKey
+
+            ResponseEntity.ok(teamData)
+        }
+
+        team == teamData
+    }
+
+    def 'should load team players'() {
+        given:
+        def restTemplate = Mock(RestTemplate)
+        FootballDataClient footballDataClient = new FootballDataClient(restTemplate: restTemplate, apiKey: 'apiKey', url: 'service-url')
+
+        when:
+        def team = footballDataClient.getShortList(1)
+
+        then:
+        1 * restTemplate.exchange(_ as String, GET, _ as HttpEntity, PlayerShortlist, _ as Integer) >> { args ->
             assert args[0] == 'service-url/teams/{teamId}/players'
             assert args[4][0] == 1
 
             HttpEntity httpEntity = args[2]
             assert httpEntity.headers['X-Auth-Token'][0] == footballDataClient.apiKey
 
-            ResponseEntity.ok(new Team(players: [new Player(name: 'foo')]))
+            ResponseEntity.ok(new PlayerShortlist(players: [new Player(name: 'foo')]))
         }
 
         team != null
@@ -33,7 +56,7 @@ class FootballDataClientSpec extends Specification {
         team.players[0].name == 'foo'
     }
 
-    def 'should get seasons'() {
+    def 'should load seasons'() {
         given:
         def restTemplate = Mock(RestTemplate)
         FootballDataClient footballDataClient = new FootballDataClient(restTemplate: restTemplate, apiKey: 'apiKey', url: 'service-url')

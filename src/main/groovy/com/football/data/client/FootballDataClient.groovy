@@ -35,7 +35,15 @@ class FootballDataClient {
     Team getTeam(int teamId) {
         def headers = new HttpHeaders()
         headers.add('X-Auth-Token', apiKey)
-        ResponseEntity<Team> responseEntity = restTemplate.exchange("${url}/teams/{teamId}/players", GET, new HttpEntity(headers), Team.class, teamId)
+        ResponseEntity<Team> responseEntity = restTemplate.exchange("${url}/teams/{teamId}", GET, new HttpEntity(headers), Team.class, teamId)
+
+        responseEntity.body
+    }
+
+    PlayerShortlist getShortList(int teamId) {
+        def headers = new HttpHeaders()
+        headers.add('X-Auth-Token', apiKey)
+        ResponseEntity<PlayerShortlist> responseEntity = restTemplate.exchange("${url}/teams/{teamId}/players", GET, new HttpEntity(headers), PlayerShortlist.class, teamId)
 
         responseEntity.body
     }
