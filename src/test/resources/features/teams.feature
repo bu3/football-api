@@ -1,4 +1,4 @@
-Feature: Footbal API returns Team Players
+Feature: Football API returns Teams data
 
   Scenario: Api returns Team players
     Given app has started
