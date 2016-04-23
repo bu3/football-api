@@ -8,7 +8,6 @@ import java.time.LocalDate
 
 class TeamConverterSpec extends Specification {
 
-
     def "Should convert Team"() {
         given:
         TeamConverter teamConverter = new TeamConverter()
@@ -16,6 +15,7 @@ class TeamConverterSpec extends Specification {
         when:
         def team = teamConverter.convert(
                 new com.football.data.client.Team(
+                        id: 1,
                         name: 'A.S. Roma',
                         code: 'ROM',
                         shortName: 'Rom',
@@ -33,6 +33,7 @@ class TeamConverterSpec extends Specification {
                                 "marketValue": "4,000,000 €")]))
 
         then:
+        team.id == 1L
         team.name == 'A.S. Roma'
         team.code == 'ROM'
         team.shortName == 'Rom'
@@ -48,4 +49,28 @@ class TeamConverterSpec extends Specification {
         team.players[0].marketValue == '4,000,000 €'
     }
 
+    def "Should convert a list of Team"() {
+        given:
+        com.football.data.client.Team[] teams = [
+                new com.football.data.client.Team(id: 1, code: 'code', name: 'name', shortName: 'shortName', crestUrl: 'logoUrl'),
+                new com.football.data.client.Team(id: 2, code: 'code2', name: 'name2', shortName: 'shortName2', crestUrl: 'logoUrl2')
+        ]
+        TeamConverter teamConverter = new TeamConverter()
+
+        when:
+        def result = teamConverter.convert(teams)
+
+        then:
+        result.size() == 2
+        result[0].id == 1L
+        result[0].code == 'code'
+        result[0].name == 'name'
+        result[0].shortName == 'shortName'
+        result[0].logoUrl == 'logoUrl'
+        result[1].id == 2L
+        result[1].code == 'code2'
+        result[1].name == 'name2'
+        result[1].shortName == 'shortName2'
+        result[1].logoUrl == 'logoUrl2'
+    }
 }

@@ -20,14 +20,31 @@ When(~'^team players are requested$') { ->
 }
 
 Then(~'^team players are$') { DataTable teamPlayers ->
-    def response = StoryContext.getFromContext(RESPONSE).as(Map)
+    checkValues(teamPlayers)
+}
 
-    teamPlayers.asMaps(String,String).each { row ->
-        def result = Eval.me('team', response, "team.${row.property}").toString()
+When(~'^teams for season "([^"]*)" are requested$') { int seasonId->
+    def response = givenApiClient().contentType(JSON).get("/teams?seasonId=398")
+    StoryContext.putInContext(RESPONSE, response)
+}
+
+Then(~'^teams contain$') { DataTable teamsData ->
+    def response = StoryContext.getFromContext(RESPONSE).as(List)
+    teamsData.asMaps(String, String).each { row ->
+        def result = Eval.me('item', response, "${row.property}").toString()
         def fieldValue = row.value ?: null
 
-        assertThat("trip.${row.field}", result, CoreMatchers.is(fieldValue))
+        assertThat("item.${row.field}", result, CoreMatchers.is(fieldValue))
     }
 }
 
+private void checkValues(DataTable dataTable) {
+    def response = StoryContext.getFromContext(RESPONSE).as(Map)
 
+    dataTable.asMaps(String, String).each { row ->
+        def result = Eval.me('item', response, "item.${row.property}").toString()
+        def fieldValue = row.value ?: null
+
+        assertThat("item.${row.field}", result, CoreMatchers.is(fieldValue))
+    }
+}

@@ -9,7 +9,7 @@ import java.time.LocalDate
 @ToString
 @EqualsAndHashCode
 class Team {
-
+    Long id
     String name
     String code
     String shortName

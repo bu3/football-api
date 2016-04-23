@@ -1,7 +1,6 @@
 package com.football.data.team
 
 import com.football.data.client.FootballDataClient
-import com.football.data.client.PlayerShortlist
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Component
 
@@ -14,10 +13,15 @@ class TeamService {
     @Autowired
     TeamConverter converter
 
-    Team findTeamById(int teamId){
+    Team findTeamById(int teamId) {
         def team = footballDataClient.getTeam(teamId)
         def list = footballDataClient.getShortList(teamId)
         converter.convert(team, list)
     }
 
+    Team[] getTeams(Long seasonId){
+        def teamShortlist = footballDataClient.getTeamsForSeason(seasonId)
+
+        converter.convert(teamShortlist.teams)
+    }
 }

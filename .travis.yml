@@ -22,8 +22,8 @@ deploy:
     api: https://api.run.pivotal.io
     organization: Catulla
     space: development
-  - provider: bintray
-    file: "bintray.json"
-    user: "bu3"
-    key:
-      secure: XU+RUNIjW1nXeO20GWLXXA8sncYDG7olaa3lpo+4R8dw3WnLWiZEJUuE69QBzXlX1GSEWcoxGekYa2o2SotiyOlxecXetEONWN92aox8d93ncPJgtecUOOixFeI9rOmFkuZjotslSzo3nVXRrh1+WKrAQgyxUe3jp+Vog0fUKtLQbTCxnybjL5gai1hq1LvPjPQ3MvYbv11zfMjasLZ2XUhQw7SGDUi9FbqKsFliD/NzxpJuGkMG49P5tAIIwXIiZCgWiQpmiP9Ano2JhrA1HEus+w8R7kb4e6Jdrzp5bRuUhFu1KuJq2IOE/7eZ/d/3DCiUvKDn20Uam/9KearIfvzLZZjcu+e/PLNFE7oxh7yvu4ke4/wY2JQvtrgCjT8pg1VC/WmFSQi68J0Dvwnbl8lxdhjm0nRq3WlTMCH0+UVg26WOhu1vcjgng4hOmRBGMAWisOeBnc/ogDqz/yIncvP1n4dZ0ph+ioaQOfb9blU0JpvZs5Q5kZlHimo0oeaZy4K+v2ftykDz22XGQsBlWpTc4MYeuYQHB27YKfk6sZPwgNBSjwRkeE2AXpjDFKFtHhEhnfJcunyKNcH31X4vvliFyLekISZV3DeKjC1O4s6MJ4zargVtivdh1fcTP5sNOoriK/sVJJgI2psqSCV/k9w6hcQrm6CLMZzYxOoRXqs=
+#  - provider: bintray
+#    file: "bintray.json"
+#    user: "bu3"
+#    key:
+#      secure: XU+RUNIjW1nXeO20GWLXXA8sncYDG7olaa3lpo+4R8dw3WnLWiZEJUuE69QBzXlX1GSEWcoxGekYa2o2SotiyOlxecXetEONWN92aox8d93ncPJgtecUOOixFeI9rOmFkuZjotslSzo3nVXRrh1+WKrAQgyxUe3jp+Vog0fUKtLQbTCxnybjL5gai1hq1LvPjPQ3MvYbv11zfMjasLZ2XUhQw7SGDUi9FbqKsFliD/NzxpJuGkMG49P5tAIIwXIiZCgWiQpmiP9Ano2JhrA1HEus+w8R7kb4e6Jdrzp5bRuUhFu1KuJq2IOE/7eZ/d/3DCiUvKDn20Uam/9KearIfvzLZZjcu+e/PLNFE7oxh7yvu4ke4/wY2JQvtrgCjT8pg1VC/WmFSQi68J0Dvwnbl8lxdhjm0nRq3WlTMCH0+UVg26WOhu1vcjgng4hOmRBGMAWisOeBnc/ogDqz/yIncvP1n4dZ0ph+ioaQOfb9blU0JpvZs5Q5kZlHimo0oeaZy4K+v2ftykDz22XGQsBlWpTc4MYeuYQHB27YKfk6sZPwgNBSjwRkeE2AXpjDFKFtHhEhnfJcunyKNcH31X4vvliFyLekISZV3DeKjC1O4s6MJ4zargVtivdh1fcTP5sNOoriK/sVJJgI2psqSCV/k9w6hcQrm6CLMZzYxOoRXqs=

@@ -5,7 +5,15 @@ import groovy.transform.ToString
 
 @ToString
 @EqualsAndHashCode
+class TeamShortlist {
+    int count
+    Team[] teams
+}
+
+@ToString
+@EqualsAndHashCode
 class Team {
+    Long id
     String name
     String code
     String shortName

@@ -12,6 +12,7 @@ class TeamConverter {
         def playersShortlist = parsePlayers(shortlist.players)
 
         new Team(
+                id: team.id,
                 name: team.name,
                 code: team.code,
                 shortName: team.shortName,
@@ -20,7 +21,24 @@ class TeamConverter {
                 players: playersShortlist)
     }
 
-    private List<Player> parsePlayers(List<com.football.data.client.Player> players) {
+    Team[] convert(com.football.data.client.Team[] teams) {
+        def convertedTeams = []
+        teams.each({ team ->
+            def team1 = new Team(
+                    id: team.id,
+                    name: team.name,
+                    code: team.code,
+                    shortName: team.shortName,
+                    marketValue: team.squadMarketValue,
+                    logoUrl: team.crestUrl)
+
+            convertedTeams << team1
+        });
+
+        convertedTeams
+    }
+
+    private static List<Player> parsePlayers(List<com.football.data.client.Player> players) {
         List<Player> playerList = []
         players.each { com.football.data.client.Player p ->
             playerList.add(parsePlayer(p))
