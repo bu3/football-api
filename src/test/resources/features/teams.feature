@@ -1,4 +1,4 @@
-Feature: Football API returns Teams data
+Feature: Football API returns Team Players
 
   Scenario: Api returns Team players
     Given app has started
@@ -13,7 +13,7 @@ Feature: Football API returns Teams data
       | logoUrl                  | http://upload.wikimedia.org/wikipedia/de/3/32/AS_Rom.svg |
       | players[0].name          | Ervin Zukanovic                                          |
       | players[0].position      | Centre Back                                              |
-      | players[0].jerseyNumber  | team players are            |
+      | players[0].jerseyNumber  | 87                                                       |
       | players[0].dateOfBirth   | 1987-02-11                                               |
       | players[0].nationality   | Bosnia-Herzegovina                                       |
       | players[0].contractUntil | 2016-06-30                                               |
