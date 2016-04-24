@@ -51,6 +51,7 @@ class FootballDataClient {
     TeamShortlist getTeamsForSeason(Long seasonId) {
         def headers = new HttpHeaders()
         headers.add('X-Auth-Token', apiKey)
+        headers.add('X-Response-Control', 'minified')
         ResponseEntity<TeamShortlist> responseEntity = restTemplate.exchange("${url}/soccerseasons/${seasonId}/teams", GET, new HttpEntity(headers), TeamShortlist)
 
         responseEntity.body

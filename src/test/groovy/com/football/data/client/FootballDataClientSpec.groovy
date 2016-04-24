@@ -36,9 +36,9 @@ class FootballDataClientSpec extends Specification {
         given:
         def restTemplate = Mock(RestTemplate)
         def seasonId = 1
-        TeamShortlist teamData = new TeamShortlist( count: 2, teams: [
-                new Team(id:1,name: 'name', code: 'code', shortName: 'shortName', squadMarketValue: '1 €', crestUrl: 'logo.url'),
-                new Team(id:2,name: 'name2', code: 'code2', shortName: 'shortName2', squadMarketValue: '2 €', crestUrl: 'logo2.url')
+        TeamShortlist teamData = new TeamShortlist(count: 2, teams: [
+                new Team(id: 1, name: 'name', shortName: 'shortName', squadMarketValue: '1 €', crestUrl: 'logo.url'),
+                new Team(id: 2, name: 'name2', shortName: 'shortName2', squadMarketValue: '2 €', crestUrl: 'logo2.url')
         ])
         FootballDataClient footballDataClient = new FootballDataClient(restTemplate: restTemplate, apiKey: 'apiKey', url: 'service-url')
 
@@ -51,6 +51,7 @@ class FootballDataClientSpec extends Specification {
 
             HttpEntity httpEntity = args[2]
             assert httpEntity.headers['X-Auth-Token'][0] == footballDataClient.apiKey
+            assert httpEntity.headers['X-Response-Control'][0] == 'minified'
 
             ResponseEntity.ok(teamData)
         }
@@ -61,7 +62,7 @@ class FootballDataClientSpec extends Specification {
     def 'should load team'() {
         given:
         def restTemplate = Mock(RestTemplate)
-        def teamData = new Team(id:1 , name: 'name', code: 'code', shortName: 'shortName', squadMarketValue: '1 €', crestUrl: 'logo.url')
+        def teamData = new Team(id: 1, name: 'name', code: 'code', shortName: 'shortName', squadMarketValue: '1 €', crestUrl: 'logo.url')
         FootballDataClient footballDataClient = new FootballDataClient(restTemplate: restTemplate, apiKey: 'apiKey', url: 'service-url')
 
         when:

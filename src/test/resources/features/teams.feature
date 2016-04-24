@@ -24,9 +24,9 @@ Feature: Football API returns Team Players
     When teams for season "398" are requested
     Then status code 200 returned
     And teams contain
-      | property        | value                                                                  |
+      | property            | value                                                                  |
+      | item[0].id          | 66                                                                     |
       | item[0].name        | Manchester United FC                                                   |
-      | item[0].code        | MUFC                                                                   |
       | item[0].shortName   | ManU                                                                   |
       | item[0].marketValue | 394,550,000 €                                                          |
       | item[0].logoUrl     | http://upload.wikimedia.org/wikipedia/de/d/da/Manchester_United_FC.svg |
